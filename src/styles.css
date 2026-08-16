@@ -107,6 +107,8 @@ a {
 .project-card,
 .skill-grid article,
 .role-grid article,
+.decision-grid article,
+.future-grid article,
 .ai-section,
 .process-band,
 .footer {
@@ -385,7 +387,9 @@ a {
 }
 
 .skill-grid,
-.role-grid {
+.role-grid,
+.decision-grid,
+.future-grid {
   display: grid;
   gap: 14px;
 }
@@ -398,22 +402,56 @@ a {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.decision-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.future-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .skill-grid article,
-.role-grid article {
+.role-grid article,
+.decision-grid article,
+.future-grid article {
   padding: 18px;
 }
 
 .skill-grid h3,
-.role-grid h3 {
+.role-grid h3,
+.decision-grid h3 {
   margin: 0;
   color: #1b3042;
   font-size: 18px;
 }
 
 .skill-grid p,
-.role-grid p {
+.role-grid p,
+.decision-grid p,
+.future-grid p {
   margin: 10px 0 0;
   font-size: 14px;
+}
+
+.decision-grid article {
+  border-top: 4px solid #24596f;
+}
+
+.future-grid article {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.future-grid span {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  background: #e8f2f5;
+  color: #24596f;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 7px 10px;
 }
 
 .ai-section {
@@ -426,6 +464,31 @@ a {
 
 .ai-section p {
   margin: 12px 0 0;
+}
+
+.boundary-box {
+  margin-top: 18px;
+  border: 1px solid #dce6eb;
+  border-radius: 8px;
+  background: #f8fafb;
+  padding: 14px;
+}
+
+.boundary-box strong {
+  color: #213648;
+}
+
+.boundary-box ul {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.boundary-box li {
+  color: #526574;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .ai-section ol {
@@ -482,7 +545,9 @@ a {
 
   .process-band,
   .skill-grid,
-  .role-grid {
+  .role-grid,
+  .decision-grid,
+  .future-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -526,7 +591,9 @@ a {
 
   .process-band,
   .skill-grid,
-  .role-grid {
+  .role-grid,
+  .decision-grid,
+  .future-grid {
     grid-template-columns: 1fr;
   }
 }

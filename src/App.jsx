@@ -70,6 +70,47 @@ const roleTargets = [
   },
 ];
 
+const designDecisions = [
+  {
+    title: "先看見狀態，再處理問題",
+    text: "我把作品拆成生產追蹤與異常處理兩個主題，因為工廠現場不只需要知道今天做了多少，也需要知道異常發生後誰負責、處理到哪裡、後續是否改善。",
+  },
+  {
+    title: "用流程欄位取代單純展示畫面",
+    text: "第二個作品刻意加入 SLA、主管驗收、RCA 與改善追蹤，讓異常單不是停在回報，而是能呈現從發現問題到結案改善的管理流程。",
+  },
+  {
+    title: "資料皆使用模擬情境",
+    text: "作品中的工單、機台、人員與異常內容都是模擬資料，目的是展示流程設計與前端實作能力，不涉及任何公司內部資料或個資。",
+  },
+];
+
+const aiBoundaries = [
+  "AI 協助我構思製造業情境、整理欄位與產生初版介面方向。",
+  "我負責判斷作品主題、流程切分、欄位取捨、求職定位與公開安全檢查。",
+  "每次部署前都確認沒有 API key、token、密碼、真實公司資料或個資。",
+  "我把 AI 當成協作工具，而不是取代我理解問題與整理系統邏輯的能力。",
+];
+
+const futurePlans = [
+  {
+    label: "資料保存",
+    text: "串接資料庫，保存工單、異常單、維修紀錄與改善追蹤狀態。",
+  },
+  {
+    label: "角色權限",
+    text: "加入現場人員、主管、維修、品管等角色，限制不同操作權限。",
+  },
+  {
+    label: "報表匯出",
+    text: "支援 Excel / CSV 匯出，產生日報、異常月報與改善追蹤表。",
+  },
+  {
+    label: "系統整合",
+    text: "未來可延伸串接 MES / ERP 資料來源，讓 Demo 變成內部工具原型。",
+  },
+];
+
 function AppLink({ href, children, variant = "primary" }) {
   const isInternal = href.startsWith("#");
   return (
@@ -94,9 +135,11 @@ export function App() {
         </a>
         <nav aria-label="作品集導覽">
           <a href="#projects">作品</a>
+          <a href="#decisions">設計</a>
           <a href="#skills">能力</a>
           <a href="#roles">職缺</a>
           <a href="#workflow">流程</a>
+          <a href="#future">延伸</a>
         </nav>
       </header>
 
@@ -211,6 +254,23 @@ export function App() {
         ))}
       </section>
 
+      <section className="section-heading" id="decisions">
+        <p className="eyebrow">Design Rationale</p>
+        <h2>我在作品中的設計判斷</h2>
+        <p>
+          我希望面試官看到的不只是畫面完成度，也能看到我如何理解問題、拆解流程，並把製造現場情境轉成資訊系統可以承接的欄位與狀態。
+        </p>
+      </section>
+
+      <section className="decision-grid">
+        {designDecisions.map((item) => (
+          <article key={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="section-heading" id="skills">
         <p className="eyebrow">What I Want To Show</p>
         <h2>履歷中想強調的能力</h2>
@@ -232,6 +292,14 @@ export function App() {
           <p>
             我使用 AI 不是只拿來產生畫面，而是把它放進完整工作流程：先拆解製造業情境，再規劃資料欄位與使用者流程，接著實作互動原型，最後整理成能放進求職網站的作品說明。
           </p>
+          <div className="boundary-box">
+            <strong>AI 協作邊界</strong>
+            <ul>
+              {aiBoundaries.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
         <ol>
           <li>
@@ -247,6 +315,23 @@ export function App() {
             <span>輔助調整作品說明與求職文案</span>
           </li>
         </ol>
+      </section>
+
+      <section className="section-heading" id="future">
+        <p className="eyebrow">Future Extension</p>
+        <h2>如果延伸成公司內部工具</h2>
+        <p>
+          目前作品以純前端 Demo 呈現，方便公開展示且沒有資安風險。若進一步落地到真實工作場景，可以往資料保存、權限控管、報表匯出與系統整合擴充。
+        </p>
+      </section>
+
+      <section className="future-grid">
+        {futurePlans.map((plan) => (
+          <article key={plan.label}>
+            <span>{plan.label}</span>
+            <p>{plan.text}</p>
+          </article>
+        ))}
       </section>
 
       <footer className="footer">
