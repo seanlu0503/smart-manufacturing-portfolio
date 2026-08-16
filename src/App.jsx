@@ -8,6 +8,8 @@ const projects = [
     description:
       "模擬現場主管或生管人員查看今日生產數、完成工單、延遲工單、異常機台、平均良率、工單目前站點、機台稼動狀態與異常原因排行。",
     highlights: ["工單進度", "產線篩選", "機台稼動", "良率分析"],
+    value: "呈現我能把生產現場資料整理成主管可快速判讀的儀表板。",
+    interviewPoints: ["KPI 摘要", "工單狀態追蹤", "異常排行", "AI 協作規劃"],
   },
   {
     title: "工廠異常回報與維修派工系統",
@@ -16,8 +18,10 @@ const projects = [
     demo: "https://seanlu0503.github.io/factory-incident-dispatch-system/",
     repo: "https://github.com/seanlu0503/factory-incident-dispatch-system",
     description:
-      "模擬產線發生設備故障、品質異常、缺料、停線或安全風險時，建立異常回報、指派處理人員、追蹤處理狀態並留下 RCA 改善紀錄。",
-    highlights: ["異常通報", "維修派工", "處理歷程", "RCA 改善"],
+      "模擬產線發生設備故障、品質異常、缺料、停線或安全風險時，建立異常回報、指派處理人員、追蹤 SLA、主管驗收並留下 RCA 與改善追蹤紀錄。",
+    highlights: ["SLA 追蹤", "維修派工", "主管驗收", "改善追蹤"],
+    value: "呈現我能把現場異常處理流程拆成可操作、可追蹤、可改善的系統流程。",
+    interviewPoints: ["SLA 規則表", "異常流程圖", "Timeline 紀錄", "RCA 改善狀態"],
   },
 ];
 
@@ -43,15 +47,38 @@ const skills = [
 const process = [
   "生產追蹤",
   "異常回報",
+  "SLA 判斷",
   "主管確認",
   "維修派工",
+  "驗收結案",
   "處理紀錄",
-  "改善分析",
+  "改善追蹤",
+];
+
+const roleTargets = [
+  {
+    title: "MES / 製造資訊系統助理",
+    text: "作品中包含工單、產線、機台、異常狀態、處理歷程與資料視覺化，能對應製造系統導入與維護的基礎需求。",
+  },
+  {
+    title: "生管 / 製程改善助理",
+    text: "用 Dashboard 看進度，用異常派工系統追蹤現場問題，能說明我理解生產排程、停機影響與改善追蹤。",
+  },
+  {
+    title: "數位轉型 / AI 協作助理",
+    text: "作品展示我能用 AI 協助需求拆解、介面規劃、前端實作與文案整理，並把成果包裝成可公開展示的專案。",
+  },
 ];
 
 function AppLink({ href, children, variant = "primary" }) {
+  const isInternal = href.startsWith("#");
   return (
-    <a className={`app-link ${variant}`} href={href} target="_blank" rel="noreferrer">
+    <a
+      className={`app-link ${variant}`}
+      href={href}
+      target={isInternal ? undefined : "_blank"}
+      rel={isInternal ? undefined : "noreferrer"}
+    >
       {children}
     </a>
   );
@@ -68,6 +95,7 @@ export function App() {
         <nav aria-label="作品集導覽">
           <a href="#projects">作品</a>
           <a href="#skills">能力</a>
+          <a href="#roles">職缺</a>
           <a href="#workflow">流程</a>
         </nav>
       </header>
@@ -94,7 +122,7 @@ export function App() {
           <div>
             <span>2</span>
             <strong>公開 Demo</strong>
-            <small>GitHub Pages 部署</small>
+            <small>生產追蹤與異常處理</small>
           </div>
           <div>
             <span>React</span>
@@ -105,6 +133,11 @@ export function App() {
             <span>AI</span>
             <strong>協作開發</strong>
             <small>需求拆解、原型實作、文案整理</small>
+          </div>
+          <div>
+            <span>Flow</span>
+            <strong>流程整理</strong>
+            <small>SLA / RCA / 改善追蹤</small>
           </div>
         </aside>
       </section>
@@ -136,10 +169,19 @@ export function App() {
               <p className="project-subtitle">{project.subtitle}</p>
               <h3>{project.title}</h3>
               <p>{project.description}</p>
+              <p className="project-value">{project.value}</p>
               <div className="tags" aria-label={`${project.title} 功能亮點`}>
                 {project.highlights.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
+              </div>
+              <div className="interview-points" aria-label={`${project.title} 面試可講重點`}>
+                <strong>面試可講重點</strong>
+                <ul>
+                  {project.interviewPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
               <div className="card-actions">
                 <AppLink href={project.demo}>前往 Demo</AppLink>
@@ -148,6 +190,23 @@ export function App() {
                 </AppLink>
               </div>
             </div>
+          </article>
+        ))}
+      </section>
+
+      <section className="section-heading" id="roles">
+        <p className="eyebrow">Target Roles</p>
+        <h2>這組作品對應的求職方向</h2>
+        <p>
+          我希望把作品連到實際職缺需求，而不是只展示畫面。這三個方向都能用目前作品集說明我的學習路線與實作能力。
+        </p>
+      </section>
+
+      <section className="role-grid">
+        {roleTargets.map((role) => (
+          <article key={role.title}>
+            <h3>{role.title}</h3>
+            <p>{role.text}</p>
           </article>
         ))}
       </section>

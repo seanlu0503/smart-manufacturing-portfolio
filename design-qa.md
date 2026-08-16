@@ -20,6 +20,11 @@ final result: passed
   - incident dispatch demo
   - incident dispatch GitHub repo
   - GitHub profile
+- Portfolio content included:
+  - manufacturing workflow roadmap
+  - interview talking points for each project
+  - target role mapping for MES, production control, process improvement, and digital transformation roles
+  - updated incident dispatch positioning for SLA tracking, supervisor review, RCA, and improvement tracking
 
 ## Notes
 
