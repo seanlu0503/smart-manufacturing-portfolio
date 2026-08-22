@@ -55,21 +55,6 @@ const process = [
   "改善追蹤",
 ];
 
-const roleTargets = [
-  {
-    title: "MES / 製造資訊系統助理",
-    text: "作品中包含工單、產線、機台、異常狀態、處理歷程與資料視覺化，能對應製造系統導入與維護的基礎需求。",
-  },
-  {
-    title: "生管 / 製程改善助理",
-    text: "用 Dashboard 看進度，用異常派工系統追蹤現場問題，能說明我理解生產排程、停機影響與改善追蹤。",
-  },
-  {
-    title: "數位轉型 / AI 協作助理",
-    text: "作品展示我能用 AI 協助需求拆解、介面規劃、前端實作與文案整理，並把成果包裝成可公開展示的專案。",
-  },
-];
-
 const designDecisions = [
   {
     title: "先看見狀態，再處理問題",
@@ -144,7 +129,6 @@ export function App() {
           <a href="#projects">作品</a>
           <a href="#decisions">設計</a>
           <a href="#skills">能力</a>
-          <a href="#roles">職缺</a>
           <a href="#workflow">流程</a>
           <a href="#security">安全</a>
           <a href="#future">延伸</a>
@@ -160,7 +144,7 @@ export function App() {
             <span>資訊系統作品</span>
           </h1>
           <p>
-            我目前希望往工廠生產製程、智慧製造、MES/ERP 系統助理、資料整理與流程改善相關職缺發展。這組作品聚焦在製造現場最常見的兩件事：掌握生產狀態，以及處理現場異常。
+            我目前的作品方向聚焦在工廠生產製程、智慧製造、MES/ERP 系統概念、資料整理與流程改善。這組作品聚焦在製造現場最常見的兩件事：掌握生產狀態，以及處理現場異常。
           </p>
           <div className="hero-actions">
             <AppLink href="#projects">查看作品</AppLink>
@@ -241,23 +225,6 @@ export function App() {
                 </AppLink>
               </div>
             </div>
-          </article>
-        ))}
-      </section>
-
-      <section className="section-heading" id="roles">
-        <p className="eyebrow">Target Roles</p>
-        <h2>這組作品對應的求職方向</h2>
-        <p>
-          我希望把作品連到實際職缺需求，而不是只展示畫面。這三個方向都能用目前作品集說明我的學習路線與實作能力。
-        </p>
-      </section>
-
-      <section className="role-grid">
-        {roleTargets.map((role) => (
-          <article key={role.title}>
-            <h3>{role.title}</h3>
-            <p>{role.text}</p>
           </article>
         ))}
       </section>

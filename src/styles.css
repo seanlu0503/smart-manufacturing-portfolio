@@ -106,7 +106,6 @@ a {
 .hero-panel,
 .project-card,
 .skill-grid article,
-.role-grid article,
 .decision-grid article,
 .future-grid article,
 .ai-section,
@@ -388,7 +387,6 @@ a {
 }
 
 .skill-grid,
-.role-grid,
 .decision-grid,
 .future-grid {
   display: grid;
@@ -397,10 +395,6 @@ a {
 
 .skill-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.role-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .decision-grid {
@@ -412,14 +406,12 @@ a {
 }
 
 .skill-grid article,
-.role-grid article,
 .decision-grid article,
 .future-grid article {
   padding: 18px;
 }
 
 .skill-grid h3,
-.role-grid h3,
 .decision-grid h3 {
   margin: 0;
   color: #1b3042;
@@ -427,7 +419,6 @@ a {
 }
 
 .skill-grid p,
-.role-grid p,
 .decision-grid p,
 .future-grid p {
   margin: 10px 0 0;
@@ -588,7 +579,6 @@ a {
 
   .process-band,
   .skill-grid,
-  .role-grid,
   .decision-grid,
   .future-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -634,7 +624,6 @@ a {
 
   .process-band,
   .skill-grid,
-  .role-grid,
   .decision-grid,
   .future-grid {
     grid-template-columns: 1fr;

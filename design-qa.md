@@ -6,7 +6,7 @@ final result: passed
 
 - Project: Smart Manufacturing Portfolio landing page.
 - Goal: A one-link portfolio hub for job platforms, connecting the production dashboard and incident dispatch system.
-- Target use: public GitHub Pages link for 1111, Cake, LinkedIn, and interview sharing.
+- Target use: public GitHub Pages link for portfolio and interview sharing.
 
 ## Checks
 
@@ -23,7 +23,6 @@ final result: passed
 - Portfolio content included:
   - manufacturing workflow roadmap
   - interview talking points for each project
-  - target role mapping for MES, production control, process improvement, and digital transformation roles
   - updated incident dispatch positioning for SLA tracking, supervisor review, RCA, and improvement tracking
   - design rationale explaining why the portfolio is split into production tracking and incident handling
   - AI collaboration boundary explaining what AI assisted and what decisions were handled by the portfolio owner
