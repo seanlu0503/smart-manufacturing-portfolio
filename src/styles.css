@@ -110,6 +110,7 @@ a {
 .decision-grid article,
 .future-grid article,
 .ai-section,
+.security-section,
 .process-band,
 .footer {
   border: 1px solid #d5e0e7;
@@ -466,6 +467,47 @@ a {
   margin: 12px 0 0;
 }
 
+.security-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: 24px;
+  margin-top: 48px;
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.security-section h2 {
+  margin: 0;
+  color: #102031;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.security-section p {
+  margin: 12px 0 0;
+  color: #526574;
+  line-height: 1.72;
+}
+
+.security-section ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.security-section li {
+  border: 1px solid #dce6eb;
+  border-radius: 8px;
+  background: #f8fafb;
+  color: #405563;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.55;
+  padding: 13px 14px;
+}
+
 .boundary-box {
   margin-top: 18px;
   border: 1px solid #dce6eb;
@@ -539,7 +581,8 @@ a {
 @media (max-width: 940px) {
   .hero,
   .project-card,
-  .ai-section {
+  .ai-section,
+  .security-section {
     grid-template-columns: 1fr;
   }
 

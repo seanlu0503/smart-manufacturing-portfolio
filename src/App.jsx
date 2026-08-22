@@ -111,6 +111,13 @@ const futurePlans = [
   },
 ];
 
+const securityNotes = [
+  "本作品集為純前端靜態展示，使用 GitHub Pages 免費部署。",
+  "無後端、無資料庫、無登入系統，也沒有串接任何付費 API。",
+  "所有工單、機台、人員與異常內容皆為模擬資料。",
+  "公開 repo 不包含 API key、token、密碼、公司資料、客戶資料或個資。",
+];
+
 function AppLink({ href, children, variant = "primary" }) {
   const isInternal = href.startsWith("#");
   return (
@@ -139,6 +146,7 @@ export function App() {
           <a href="#skills">能力</a>
           <a href="#roles">職缺</a>
           <a href="#workflow">流程</a>
+          <a href="#security">安全</a>
           <a href="#future">延伸</a>
         </nav>
       </header>
@@ -332,6 +340,21 @@ export function App() {
             <p>{plan.text}</p>
           </article>
         ))}
+      </section>
+
+      <section className="security-section" id="security">
+        <div>
+          <p className="eyebrow">Public Safety</p>
+          <h2>公開作品安全聲明</h2>
+          <p>
+            因為作品會放在公開求職網站與 GitHub Pages，我刻意把它設計成安全的靜態展示專案，避免公開任何金鑰、真實資料或內部資訊。
+          </p>
+        </div>
+        <ul>
+          {securityNotes.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
       </section>
 
       <footer className="footer">

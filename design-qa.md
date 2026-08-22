@@ -28,6 +28,7 @@ final result: passed
   - design rationale explaining why the portfolio is split into production tracking and incident handling
   - AI collaboration boundary explaining what AI assisted and what decisions were handled by the portfolio owner
   - future extension plan for database persistence, role permissions, reporting, and MES / ERP integration
+  - public safety statement for static frontend deployment, simulated data, and no API keys or credentials
 
 ## Notes
 
