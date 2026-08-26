@@ -110,7 +110,7 @@ a {
 .future-grid article,
 .ai-section,
 .security-section,
-.process-band,
+.connection-section,
 .footer {
   border: 1px solid #d5e0e7;
   border-radius: 8px;
@@ -228,23 +228,47 @@ a {
   font-size: 12px;
 }
 
-.process-band {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
+.connection-section {
   margin-top: 18px;
-  overflow: hidden;
-  padding: 0;
+  padding: clamp(22px, 4vw, 36px);
 }
 
-.process-band div {
-  min-height: 94px;
+.connection-heading {
+  max-width: 780px;
+}
+
+.connection-heading h2 {
+  margin: 0;
+  color: #102031;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.18;
+}
+
+.connection-heading p:last-child {
+  margin: 12px 0 0;
+  color: #526574;
+  line-height: 1.72;
+}
+
+.process-band {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.process-band article {
+  position: relative;
+  min-height: 150px;
+  border: 1px solid #dce6eb;
+  border-radius: 8px;
   background: #f8fafb;
   padding: 16px;
 }
 
 .process-band span,
-.process-band strong {
+.process-band strong,
+.process-band small {
   display: block;
 }
 
@@ -254,10 +278,38 @@ a {
   font-weight: 900;
 }
 
+.process-band small {
+  margin-top: 10px;
+  color: #24596f;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
 .process-band strong {
-  margin-top: 14px;
+  margin-top: 8px;
   color: #24394b;
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.process-band p {
+  margin: 7px 0 0;
+  color: #667784;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.process-band article:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: -16px;
+  color: #72909e;
+  font-size: 20px;
+  font-weight: 900;
+  transform: translateY(-50%);
 }
 
 .section-heading {
@@ -333,6 +385,31 @@ a {
   font-size: 14px;
   font-weight: 800;
   padding: 10px 12px;
+}
+
+.project-context {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+.project-context div {
+  border-left: 3px solid #9bbdca;
+  background: #f8fafb;
+  padding: 9px 11px;
+}
+
+.project-context dt {
+  color: #24596f;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.project-context dd {
+  margin: 4px 0 0;
+  color: #526574;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .tags {
@@ -582,6 +659,10 @@ a {
   .decision-grid,
   .future-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-band article:not(:last-child)::after {
+    display: none;
   }
 }
 

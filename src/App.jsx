@@ -7,9 +7,11 @@ const projects = [
     repo: "https://github.com/seanlu0503/factory-portfolio-dashboard",
     description:
       "模擬現場主管或生管人員查看今日生產數、完成工單、延遲工單、異常機台、平均良率、工單目前站點、機台稼動狀態與異常原因排行。",
+    scenario: "班前或班中查看今日產線、工單與機台的執行狀態。",
+    problem: "當進度落後、良率異常或機台停機時，管理者需要先快速判斷影響範圍。",
+    actions: ["切換產線篩選", "查看工單進度", "比對機台稼動與良率", "辨識異常原因排行"],
     highlights: ["工單進度", "產線篩選", "機台稼動", "良率分析"],
     value: "呈現我能把生產現場資料整理成主管可快速判讀的儀表板。",
-    interviewPoints: ["KPI 摘要", "工單狀態追蹤", "異常排行", "AI 協作規劃"],
   },
   {
     title: "工廠異常回報與維修派工系統",
@@ -19,9 +21,11 @@ const projects = [
     repo: "https://github.com/seanlu0503/factory-incident-dispatch-system",
     description:
       "模擬產線發生設備故障、品質異常、缺料、停線或安全風險時，建立異常回報、指派處理人員、追蹤 SLA、主管驗收並留下 RCA 與改善追蹤紀錄。",
+    scenario: "產線發現異常後，建立案件並由主管安排處理與驗收。",
+    problem: "現場問題若只靠口頭交接，容易不知道誰負責、處理到哪裡，以及是否真的完成改善。",
+    actions: ["建立異常回報", "指派責任人員", "追蹤 SLA 與處理狀態", "完成驗收、RCA 與改善追蹤"],
     highlights: ["SLA 追蹤", "維修派工", "主管驗收", "改善追蹤"],
     value: "呈現我能把現場異常處理流程拆成可操作、可追蹤、可改善的系統流程。",
-    interviewPoints: ["SLA 規則表", "異常流程圖", "Timeline 紀錄", "RCA 改善狀態"],
   },
 ];
 
@@ -45,14 +49,12 @@ const skills = [
 ];
 
 const process = [
-  "生產追蹤",
-  "異常回報",
-  "SLA 判斷",
-  "主管確認",
-  "維修派工",
-  "驗收結案",
-  "處理紀錄",
-  "改善追蹤",
+  { system: "生產追蹤 Dashboard", label: "掌握產線狀態", detail: "工單、良率、機台與進度" },
+  { system: "生產追蹤 Dashboard", label: "發現異常訊號", detail: "延遲、停機或品質偏差" },
+  { system: "異常回報系統", label: "建立異常案件", detail: "記錄影響範圍與嚴重程度" },
+  { system: "異常回報系統", label: "派工與處理", detail: "SLA、責任人員與處理紀錄" },
+  { system: "異常回報系統", label: "驗收與結案", detail: "RCA、預防再發與主管確認" },
+  { system: "異常回報系統", label: "改善追蹤", detail: "確認措施是否真正落地" },
 ];
 
 const designDecisions = [
@@ -121,12 +123,13 @@ export function App() {
   return (
     <main className="site-shell">
       <header className="topbar">
-        <a href="#top" className="brand">
+          <a href="#top" className="brand">
           <span>SM</span>
           智慧製造作品集
         </a>
         <nav aria-label="作品集導覽">
           <a href="#projects">作品</a>
+          <a href="#connection">串聯流程</a>
           <a href="#decisions">設計</a>
           <a href="#skills">能力</a>
           <a href="#workflow">流程</a>
@@ -177,13 +180,24 @@ export function App() {
         </aside>
       </section>
 
-      <section className="process-band" id="workflow" aria-label="製造現場流程">
-        {process.map((item, index) => (
-          <div key={item}>
+      <section className="connection-section" id="connection" aria-label="兩個作品的串聯流程">
+        <div className="connection-heading">
+          <p className="eyebrow">System Connection</p>
+          <h2>從生產異常到改善追蹤</h2>
+          <p>
+            生產追蹤 Dashboard 用來發現需要注意的現場訊號；異常回報與維修派工系統則承接後續的回報、處理、驗收與改善。兩個作品合起來，呈現一條完整的問題處理路徑。
+          </p>
+        </div>
+        <div className="process-band" id="workflow">
+          {process.map((item, index) => (
+          <article key={item.label}>
             <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{item}</strong>
-          </div>
-        ))}
+            <small>{item.system}</small>
+            <strong>{item.label}</strong>
+            <p>{item.detail}</p>
+          </article>
+          ))}
+        </div>
       </section>
 
       <section className="section-heading" id="projects">
@@ -205,15 +219,25 @@ export function App() {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <p className="project-value">{project.value}</p>
+              <dl className="project-context">
+                <div>
+                  <dt>模擬情境</dt>
+                  <dd>{project.scenario}</dd>
+                </div>
+                <div>
+                  <dt>解決問題</dt>
+                  <dd>{project.problem}</dd>
+                </div>
+              </dl>
               <div className="tags" aria-label={`${project.title} 功能亮點`}>
                 {project.highlights.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
-              <div className="interview-points" aria-label={`${project.title} 面試可講重點`}>
-                <strong>面試可講重點</strong>
+              <div className="interview-points" aria-label={`${project.title} 可操作重點`}>
+                <strong>可操作重點</strong>
                 <ul>
-                  {project.interviewPoints.map((point) => (
+                  {project.actions.map((point) => (
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
