@@ -57,6 +57,24 @@ const process = [
   { system: "異常回報系統", label: "改善追蹤", detail: "確認措施是否真正落地" },
 ];
 
+const quickGuide = [
+  {
+    step: "01",
+    title: "先看生產狀態",
+    text: "從 Dashboard 的工單、良率、機台與風險提醒，找出需要優先處理的訊號。",
+  },
+  {
+    step: "02",
+    title: "再建立異常案件",
+    text: "點選風險提醒後，將工單與機台資訊帶入派工系統，確認後建立回報。",
+  },
+  {
+    step: "03",
+    title: "完成驗收與回看",
+    text: "在派工系統追蹤處理、RCA、驗收與改善成效，確認問題是否真正下降。",
+  },
+];
+
 const designDecisions = [
   {
     title: "先看見狀態，再處理問題",
@@ -130,6 +148,7 @@ export function App() {
         <nav aria-label="作品集導覽">
           <a href="#projects">作品</a>
           <a href="#connection">串聯流程</a>
+          <a href="#guide">操作導覽</a>
           <a href="#decisions">設計</a>
           <a href="#skills">能力</a>
           <a href="#workflow">流程</a>
@@ -196,6 +215,24 @@ export function App() {
             <strong>{item.label}</strong>
             <p>{item.detail}</p>
           </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="quick-guide" id="guide" aria-label="作品操作導覽">
+        <div className="quick-guide-heading">
+          <p className="eyebrow">Quick Guide</p>
+          <h2>用三步看懂這組作品</h2>
+        </div>
+        <div className="quick-guide-steps">
+          {quickGuide.map((item) => (
+            <article key={item.step}>
+              <span>{item.step}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>

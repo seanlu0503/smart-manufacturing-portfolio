@@ -316,6 +316,54 @@ a {
   margin: 48px 0 18px;
 }
 
+.quick-guide {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 42px;
+  border-top: 1px solid #cfdde5;
+  border-bottom: 1px solid #cfdde5;
+  padding: 24px 0;
+}
+
+.quick-guide h2 {
+  margin: 0;
+  color: #102031;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.quick-guide-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.quick-guide-steps article {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.quick-guide-steps span {
+  color: #24596f;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.quick-guide-steps h3 {
+  margin: 0;
+  color: #1b3042;
+  font-size: 15px;
+}
+
+.quick-guide-steps p {
+  margin: 7px 0 0;
+  color: #526574;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .section-heading h2,
 .ai-section h2 {
   font-size: clamp(26px, 3.2vw, 38px);
@@ -661,6 +709,14 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .quick-guide {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-guide-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .process-band article:not(:last-child)::after {
     display: none;
   }
@@ -707,6 +763,10 @@ a {
   .skill-grid,
   .decision-grid,
   .future-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-guide-steps {
     grid-template-columns: 1fr;
   }
 }
