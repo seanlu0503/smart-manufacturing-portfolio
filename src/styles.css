@@ -364,6 +364,13 @@ a {
   line-height: 1.6;
 }
 
+.quick-guide-steps .app-link {
+  min-height: 34px;
+  margin-top: 12px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
 .section-heading h2,
 .ai-section h2 {
   font-size: clamp(26px, 3.2vw, 38px);

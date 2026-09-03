@@ -62,16 +62,22 @@ const quickGuide = [
     step: "01",
     title: "先看生產狀態",
     text: "從 Dashboard 的工單、良率、機台與風險提醒，找出需要優先處理的訊號。",
+    action: "開啟風險提醒",
+    href: "https://seanlu0503.github.io/factory-portfolio-dashboard/#alerts",
   },
   {
     step: "02",
     title: "再建立異常案件",
     text: "點選風險提醒後，將工單與機台資訊帶入派工系統，確認後建立回報。",
+    action: "查看處理案例",
+    href: "https://seanlu0503.github.io/factory-incident-dispatch-system/?source=production-dashboard&incidentId=INC-260711-003#review",
   },
   {
     step: "03",
     title: "完成驗收與回看",
     text: "在派工系統追蹤處理、RCA、驗收與改善成效，確認問題是否真正下降。",
+    action: "查看改善成果",
+    href: "https://seanlu0503.github.io/factory-incident-dispatch-system/?source=production-dashboard&incidentId=INC-260711-003#effectiveness",
   },
 ];
 
@@ -231,6 +237,9 @@ export function App() {
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
+                <AppLink href={item.href} variant="secondary">
+                  {item.action}
+                </AppLink>
               </div>
             </article>
           ))}
