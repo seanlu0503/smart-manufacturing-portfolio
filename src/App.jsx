@@ -5,6 +5,7 @@ const projects = [
     image: "/smart-manufacturing-portfolio/assets/factory-dashboard.png",
     demo: "https://seanlu0503.github.io/factory-portfolio-dashboard/",
     repo: "https://github.com/seanlu0503/factory-portfolio-dashboard",
+    specification: "https://github.com/seanlu0503/factory-portfolio-dashboard/blob/main/PROJECT-SPEC.md",
     description:
       "模擬現場主管或生管人員查看今日生產數、完成工單、延遲工單、異常機台、平均良率、工單目前站點、機台稼動狀態與異常原因排行。",
     scenario: "班前或班中查看今日產線、工單與機台的執行狀態。",
@@ -19,6 +20,7 @@ const projects = [
     image: "/smart-manufacturing-portfolio/assets/incident-dispatch.png",
     demo: "https://seanlu0503.github.io/factory-incident-dispatch-system/",
     repo: "https://github.com/seanlu0503/factory-incident-dispatch-system",
+    specification: "https://github.com/seanlu0503/factory-incident-dispatch-system/blob/main/PROJECT-SPEC.md",
     description:
       "模擬產線發生設備故障、品質異常、缺料、停線或安全風險時，建立異常回報、指派處理人員、追蹤 SLA、主管驗收並留下 RCA 與改善追蹤紀錄。",
     scenario: "產線發現異常後，建立案件並由主管安排處理與驗收。",
@@ -292,6 +294,9 @@ export function App() {
                 <AppLink href={project.demo}>前往 Demo</AppLink>
                 <AppLink href={project.repo} variant="secondary">
                   GitHub Repo
+                </AppLink>
+                <AppLink href={project.specification} variant="secondary">
+                  專案規格
                 </AppLink>
               </div>
             </div>
