@@ -64,8 +64,8 @@ const quickGuide = [
     step: "01",
     title: "先看生產狀態",
     text: "從 Dashboard 的工單、良率、機台與風險提醒，找出需要優先處理的訊號。",
-    action: "開啟風險提醒",
-    href: "https://seanlu0503.github.io/factory-portfolio-dashboard/#alerts",
+    action: "開啟 PRESS-04 案例",
+    href: "https://seanlu0503.github.io/factory-portfolio-dashboard/?orderId=MO-260711-026#alerts",
   },
   {
     step: "02",
