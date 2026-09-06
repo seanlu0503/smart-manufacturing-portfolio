@@ -1,5 +1,20 @@
 const projects = [
   {
+    title: "工廠生產排程與產能模擬系統",
+    subtitle: "事前安排產能",
+    demo: "https://seanlu0503.github.io/factory-production-scheduling-system/",
+    repo: "https://github.com/seanlu0503/factory-production-scheduling-system",
+    specification: "https://github.com/seanlu0503/factory-production-scheduling-system/blob/main/PROJECT-SPEC.md",
+    preview: "schedule",
+    description:
+      "模擬生管人員安排工單、檢查機台每日尖峰負載與交期風險，並在設備停機時調整替代機台的排程決策。",
+    scenario: "安排週排程時，確認急件、交期、機台產能與替代安排。",
+    problem: "設備停機或產能超載時，生管需要快速判斷哪些工單受影響，以及哪一台機台能承接。",
+    actions: ["查看機台週排程", "調整工單日期與機台", "模擬 PRESS-04 停機", "匯出目前排程 CSV"],
+    highlights: ["週排程", "產能負載", "停機模擬", "替代安排"],
+    value: "呈現我能把工單、交期與有限產能整理成可操作的排程決策工具。",
+  },
+  {
     title: "工廠生產製程追蹤 Dashboard",
     subtitle: "看生產狀態",
     image: "/smart-manufacturing-portfolio/assets/factory-dashboard.png",
@@ -51,6 +66,8 @@ const skills = [
 ];
 
 const process = [
+  { system: "生產排程系統", label: "安排工單與交期", detail: "優先級、工時與排程日" },
+  { system: "生產排程系統", label: "檢查產能風險", detail: "機台負載與替代安排" },
   { system: "生產追蹤 Dashboard", label: "掌握產線狀態", detail: "工單、良率、機台與進度" },
   { system: "生產追蹤 Dashboard", label: "發現異常訊號", detail: "延遲、停機或品質偏差" },
   { system: "異常回報系統", label: "建立異常案件", detail: "記錄影響範圍與嚴重程度" },
@@ -62,20 +79,27 @@ const process = [
 const quickGuide = [
   {
     step: "01",
+    title: "先安排生產產能",
+    text: "先看本週工單、機台負載與交期，模擬設備停機後的替代排程。",
+    action: "開啟排程案例",
+    href: "https://seanlu0503.github.io/factory-production-scheduling-system/",
+  },
+  {
+    step: "02",
     title: "先看生產狀態",
     text: "從 Dashboard 的工單、良率、機台與風險提醒，找出需要優先處理的訊號。",
     action: "開啟 PRESS-04 案例",
     href: "https://seanlu0503.github.io/factory-portfolio-dashboard/?orderId=MO-260711-026#alerts",
   },
   {
-    step: "02",
+    step: "03",
     title: "再建立異常案件",
     text: "點選風險提醒後，將工單與機台資訊帶入派工系統，確認後建立回報。",
     action: "查看處理案例",
     href: "https://seanlu0503.github.io/factory-incident-dispatch-system/?source=production-dashboard&incidentId=INC-260711-003#review",
   },
   {
-    step: "03",
+    step: "04",
     title: "完成驗收與回看",
     text: "在派工系統追蹤處理、RCA、驗收與改善成效，確認問題是否真正下降。",
     action: "查看改善成果",
@@ -185,9 +209,9 @@ export function App() {
         </div>
         <aside className="hero-panel" aria-label="作品集摘要">
           <div>
-            <span>2</span>
+            <span>3</span>
             <strong>公開 Demo</strong>
-            <small>生產追蹤與異常處理</small>
+            <small>排程、追蹤與異常處理</small>
           </div>
           <div>
             <span>React</span>
@@ -207,12 +231,12 @@ export function App() {
         </aside>
       </section>
 
-      <section className="connection-section" id="connection" aria-label="兩個作品的串聯流程">
+      <section className="connection-section" id="connection" aria-label="三個作品的串聯流程">
         <div className="connection-heading">
           <p className="eyebrow">System Connection</p>
-          <h2>從生產異常到改善追蹤</h2>
+          <h2>從排程決策到改善追蹤</h2>
           <p>
-            生產追蹤 Dashboard 用來發現需要注意的現場訊號；異常回報與維修派工系統則承接後續的回報、處理、驗收與改善。兩個作品合起來，呈現一條完整的問題處理路徑。
+            生產排程系統先安排工單與產能；Dashboard 用來發現執行中的現場訊號；異常回報與維修派工系統則承接後續處理、驗收與改善。三個作品合起來，呈現完整的製造問題處理路徑。
           </p>
         </div>
         <div className="process-band" id="workflow">
@@ -230,7 +254,7 @@ export function App() {
       <section className="quick-guide" id="guide" aria-label="作品操作導覽">
         <div className="quick-guide-heading">
           <p className="eyebrow">Quick Guide</p>
-          <h2>用三步看懂這組作品</h2>
+          <h2>用四步看懂這組作品</h2>
         </div>
         <div className="quick-guide-steps">
           {quickGuide.map((item) => (
@@ -250,9 +274,9 @@ export function App() {
 
       <section className="section-heading" id="projects">
         <p className="eyebrow">Portfolio Projects</p>
-        <h2>兩個作品串起一條製造現場流程</h2>
+        <h2>三個作品串起一條製造現場流程</h2>
         <p>
-          第一個作品負責「看見狀態」，第二個作品負責「處理問題」。放在一起能呈現我對工廠流程、資料整理與前端介面設計的理解。
+          第一個作品負責「事前安排」，第二個作品負責「看見狀態」，第三個作品負責「處理問題」。放在一起能呈現我對工廠流程、資料整理與前端介面設計的理解。
         </p>
       </section>
 
@@ -260,7 +284,15 @@ export function App() {
         {projects.map((project) => (
           <article className="project-card" key={project.title}>
             <div className="project-image">
-              <img src={project.image} alt={`${project.title} 截圖`} />
+              {project.preview === "schedule" ? (
+                <div className="schedule-preview" aria-label={`${project.title} 預覽`}>
+                  <div className="schedule-preview-head"><span>Weekly Planning</span><b>76%</b></div>
+                  <div className="schedule-preview-kpis"><i>8</i><i>3</i><i>1</i></div>
+                  <div className="schedule-preview-grid"><span>CNC-03</span><b /><b className="warm" /><span>PRESS-04</span><b className="risk" /><b /></div>
+                </div>
+              ) : (
+                <img src={project.image} alt={`${project.title} 截圖`} />
+              )}
             </div>
             <div className="project-content">
               <p className="project-subtitle">{project.subtitle}</p>
