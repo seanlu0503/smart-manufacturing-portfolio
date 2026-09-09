@@ -107,6 +107,30 @@ const quickGuide = [
   },
 ];
 
+const caseJourney = [
+  {
+    step: "01",
+    system: "生產排程",
+    title: "辨識產能風險",
+    detail: "PRESS-04 停機 76 分鐘，急件 MO-260711-026 需調整。",
+    href: "https://seanlu0503.github.io/factory-production-scheduling-system/?case=press-04",
+  },
+  {
+    step: "02",
+    system: "製程追蹤",
+    title: "確認現場影響",
+    detail: "Dashboard 聚焦同一張工單、停機機台與交期風險。",
+    href: "https://seanlu0503.github.io/factory-portfolio-dashboard/?orderId=MO-260711-026#alerts",
+  },
+  {
+    step: "03",
+    system: "異常派工",
+    title: "派工、驗收與改善",
+    detail: "維修處置、RCA、主管驗收與兩週改善追蹤都有紀錄。",
+    href: "https://seanlu0503.github.io/factory-incident-dispatch-system/?source=production-dashboard&incidentId=INC-260711-003#review",
+  },
+];
+
 const designDecisions = [
   {
     title: "先看見狀態，再處理問題",
@@ -201,7 +225,7 @@ export function App() {
             我目前的作品方向聚焦在工廠生產製程、智慧製造、MES/ERP 系統概念、資料整理與流程改善。這組作品聚焦在製造現場最常見的兩件事：掌握生產狀態，以及處理現場異常。
           </p>
           <div className="hero-actions">
-            <AppLink href="#projects">查看作品</AppLink>
+            <AppLink href="#case-study">開始完整案例</AppLink>
             <AppLink href="https://github.com/seanlu0503" variant="secondary">
               GitHub
             </AppLink>
@@ -229,6 +253,35 @@ export function App() {
             <small>SLA / RCA / 改善追蹤</small>
           </div>
         </aside>
+      </section>
+
+      <section className="case-study" id="case-study" aria-label="PRESS-04 完整案例">
+        <div className="case-study-heading">
+          <p className="eyebrow">One Connected Case</p>
+          <h2>同一張工單，走完一次製造現場的處理流程</h2>
+          <p>
+            這不是三個沒有關係的 Demo。案例從 PRESS-04 油壓異常開始，影響急件工單 MO-260711-026；接著由生管調整替代產能，再由主管追蹤維修與改善成效。
+          </p>
+        </div>
+        <div className="case-study-metrics" aria-label="案例結果">
+          <div><span>共用工單</span><strong>MO-260711-026</strong></div>
+          <div><span>異常機台</span><strong>PRESS-04</strong></div>
+          <div><span>模擬停機</span><strong>76 分鐘</strong></div>
+          <div><span>改善後追蹤</span><strong>24 分鐘</strong></div>
+        </div>
+        <div className="case-journey">
+          {caseJourney.map((item, index) => (
+            <article key={item.step}>
+              <span>{item.step}</span>
+              <small>{item.system}</small>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+              <AppLink href={item.href} variant={index === 0 ? "primary" : "secondary"}>
+                開啟此步驟
+              </AppLink>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="connection-section" id="connection" aria-label="三個作品的串聯流程">

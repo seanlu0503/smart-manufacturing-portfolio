@@ -233,6 +233,122 @@ a {
   padding: clamp(22px, 4vw, 36px);
 }
 
+.case-study {
+  display: grid;
+  gap: 22px;
+  margin-top: 18px;
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid #b7d5d2;
+  border-radius: 8px;
+  background: #f2f9f7;
+}
+
+.case-study-heading {
+  max-width: 820px;
+}
+
+.case-study-heading h2 {
+  margin: 0;
+  color: #173a42;
+  font-size: clamp(25px, 3vw, 37px);
+  line-height: 1.2;
+}
+
+.case-study-heading p:not(.eyebrow) {
+  margin: 12px 0 0;
+  color: #506a70;
+  line-height: 1.75;
+}
+
+.case-study-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.case-study-metrics div {
+  border-left: 3px solid #4e9992;
+  background: #ffffff;
+  padding: 12px 14px;
+}
+
+.case-study-metrics span,
+.case-study-metrics strong {
+  display: block;
+}
+
+.case-study-metrics span {
+  color: #617a80;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.case-study-metrics strong {
+  margin-top: 5px;
+  color: #173a42;
+  font-size: 17px;
+}
+
+.case-journey {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.case-journey article {
+  position: relative;
+  min-width: 0;
+  padding-right: 16px;
+}
+
+.case-journey article:not(:last-child)::after {
+  position: absolute;
+  top: 17px;
+  right: -10px;
+  width: 20px;
+  height: 1px;
+  background: #91bbb6;
+  content: "";
+}
+
+.case-journey span,
+.case-journey small {
+  display: block;
+}
+
+.case-journey span {
+  color: #20746f;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.case-journey small {
+  margin-top: 8px;
+  color: #617a80;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.case-journey h3 {
+  margin: 5px 0 0;
+  color: #183941;
+  font-size: 18px;
+}
+
+.case-journey p {
+  min-height: 64px;
+  margin: 8px 0 0;
+  color: #566d73;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.case-journey .app-link {
+  min-height: 36px;
+  margin-top: 14px;
+  font-size: 12px;
+}
+
 .connection-heading {
   max-width: 780px;
 }
@@ -768,6 +884,15 @@ a {
 }
 
 @media (max-width: 940px) {
+  .case-study-metrics,
+  .case-journey {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-journey article:nth-child(2)::after {
+    display: none;
+  }
+
   .hero,
   .project-card,
   .ai-section,
@@ -796,6 +921,28 @@ a {
 }
 
 @media (max-width: 640px) {
+  .case-study-metrics,
+  .case-journey {
+    grid-template-columns: 1fr;
+  }
+
+  .case-journey article {
+    padding-right: 0;
+    padding-bottom: 18px;
+  }
+
+  .case-journey article:not(:last-child)::after {
+    top: auto;
+    right: auto;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+  }
+
+  .case-journey p {
+    min-height: 0;
+  }
+
   .site-shell {
     width: min(100% - 24px, 1180px);
     padding-top: 12px;
@@ -808,7 +955,14 @@ a {
   }
 
   .topbar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
     width: 100%;
+  }
+
+  .topbar nav a {
+    width: auto;
   }
 
   .topbar nav a,
