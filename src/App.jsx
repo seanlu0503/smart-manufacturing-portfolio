@@ -65,48 +65,6 @@ const skills = [
   },
 ];
 
-const process = [
-  { system: "生產排程系統", label: "安排工單與交期", detail: "優先級、工時與排程日" },
-  { system: "生產排程系統", label: "檢查產能風險", detail: "機台負載與替代安排" },
-  { system: "生產追蹤 Dashboard", label: "掌握產線狀態", detail: "工單、良率、機台與進度" },
-  { system: "生產追蹤 Dashboard", label: "發現異常訊號", detail: "延遲、停機或品質偏差" },
-  { system: "異常回報系統", label: "建立異常案件", detail: "記錄影響範圍與嚴重程度" },
-  { system: "異常回報系統", label: "派工與處理", detail: "SLA、責任人員與處理紀錄" },
-  { system: "異常回報系統", label: "驗收與結案", detail: "RCA、預防再發與主管確認" },
-  { system: "異常回報系統", label: "改善追蹤", detail: "確認措施是否真正落地" },
-];
-
-const quickGuide = [
-  {
-    step: "01",
-    title: "先安排生產產能",
-    text: "先看本週工單、機台負載與交期，模擬設備停機後的替代排程。",
-    action: "開啟排程案例",
-    href: "https://seanlu0503.github.io/factory-production-scheduling-system/",
-  },
-  {
-    step: "02",
-    title: "先看生產狀態",
-    text: "從 Dashboard 的工單、良率、機台與風險提醒，找出需要優先處理的訊號。",
-    action: "開啟 PRESS-04 案例",
-    href: "https://seanlu0503.github.io/factory-portfolio-dashboard/?orderId=MO-260711-026#alerts",
-  },
-  {
-    step: "03",
-    title: "再建立異常案件",
-    text: "點選風險提醒後，將工單與機台資訊帶入派工系統，確認後建立回報。",
-    action: "查看處理案例",
-    href: "https://seanlu0503.github.io/factory-incident-dispatch-system/?source=production-dashboard&incidentId=INC-260711-003#review",
-  },
-  {
-    step: "04",
-    title: "完成驗收與回看",
-    text: "在派工系統追蹤處理、RCA、驗收與改善成效，確認問題是否真正下降。",
-    action: "查看改善成果",
-    href: "https://seanlu0503.github.io/factory-incident-dispatch-system/?source=production-dashboard&incidentId=INC-260711-003#effectiveness",
-  },
-];
-
 const caseJourney = [
   {
     step: "01",
@@ -146,39 +104,6 @@ const designDecisions = [
   },
 ];
 
-const aiBoundaries = [
-  "AI 協助我構思製造業情境、整理欄位與產生初版介面方向。",
-  "我負責判斷作品主題、流程切分、欄位取捨、求職定位與公開安全檢查。",
-  "每次部署前都確認沒有 API key、token、密碼、真實公司資料或個資。",
-  "我把 AI 當成協作工具，而不是取代我理解問題與整理系統邏輯的能力。",
-];
-
-const futurePlans = [
-  {
-    label: "資料保存",
-    text: "串接資料庫，保存工單、異常單、維修紀錄與改善追蹤狀態。",
-  },
-  {
-    label: "角色權限",
-    text: "加入現場人員、主管、維修、品管等角色，限制不同操作權限。",
-  },
-  {
-    label: "報表匯出",
-    text: "目前可依畫面篩選匯出 CSV，後續可延伸成日報、異常月報與改善追蹤表。",
-  },
-  {
-    label: "系統整合",
-    text: "未來可延伸串接 MES / ERP 資料來源，讓 Demo 變成內部工具原型。",
-  },
-];
-
-const securityNotes = [
-  "本作品集為純前端靜態展示，使用 GitHub Pages 免費部署。",
-  "無後端、無資料庫、無登入系統，也沒有串接任何付費 API。",
-  "所有工單、機台、人員與異常內容皆為模擬資料。",
-  "公開 repo 不包含 API key、token、密碼、公司資料、客戶資料或個資。",
-];
-
 function AppLink({ href, children, variant = "primary" }) {
   const isInternal = href.startsWith("#");
   return (
@@ -202,20 +127,17 @@ export function App() {
           智慧製造作品集
         </a>
         <nav aria-label="作品集導覽">
+          <a href="#case-study">案例</a>
           <a href="#projects">作品</a>
-          <a href="#connection">串聯流程</a>
-          <a href="#guide">操作導覽</a>
           <a href="#decisions">設計</a>
           <a href="#skills">能力</a>
-          <a href="#workflow">流程</a>
-          <a href="#security">安全</a>
-          <a href="#future">延伸</a>
+          <a href="#about">關於</a>
         </nav>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">資管系夜間部學生｜AI 協作開發｜製程數位化方向</p>
+          <p className="eyebrow">資管系夜間部學生｜製程數位化方向</p>
           <h1>
             <span>把工廠現場流程</span>
             <span>整理成可操作的</span>
@@ -243,9 +165,9 @@ export function App() {
             <small>Vite / JavaScript / CSS</small>
           </div>
           <div>
-            <span>AI</span>
-            <strong>協作開發</strong>
-            <small>需求拆解、原型實作、文案整理</small>
+            <span>1</span>
+            <strong>共用案例</strong>
+            <small>從風險到改善結案</small>
           </div>
           <div>
             <span>Flow</span>
@@ -279,47 +201,6 @@ export function App() {
               <AppLink href={item.href} variant={index === 0 ? "primary" : "secondary"}>
                 開啟此步驟
               </AppLink>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connection-section" id="connection" aria-label="三個作品的串聯流程">
-        <div className="connection-heading">
-          <p className="eyebrow">System Connection</p>
-          <h2>從排程決策到改善追蹤</h2>
-          <p>
-            生產排程系統先安排工單與產能；Dashboard 用來發現執行中的現場訊號；異常回報與維修派工系統則承接後續處理、驗收與改善。三個作品合起來，呈現完整的製造問題處理路徑。
-          </p>
-        </div>
-        <div className="process-band" id="workflow">
-          {process.map((item, index) => (
-          <article key={item.label}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <small>{item.system}</small>
-            <strong>{item.label}</strong>
-            <p>{item.detail}</p>
-          </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="quick-guide" id="guide" aria-label="作品操作導覽">
-        <div className="quick-guide-heading">
-          <p className="eyebrow">Quick Guide</p>
-          <h2>用四步看懂這組作品</h2>
-        </div>
-        <div className="quick-guide-steps">
-          {quickGuide.map((item) => (
-            <article key={item.step}>
-              <span>{item.step}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <AppLink href={item.href} variant="secondary">
-                  {item.action}
-                </AppLink>
-              </div>
             </article>
           ))}
         </div>
@@ -420,68 +301,10 @@ export function App() {
         ))}
       </section>
 
-      <section className="ai-section">
-        <div>
-          <p className="eyebrow">AI Collaboration</p>
-          <h2>我的 AI 協作方式</h2>
-          <p>
-            我使用 AI 不是只拿來產生畫面，而是把它放進完整工作流程：先拆解製造業情境，再規劃資料欄位與使用者流程，接著實作互動原型，最後整理成能放進求職網站的作品說明。
-          </p>
-          <div className="boundary-box">
-            <strong>AI 協作邊界</strong>
-            <ul>
-              {aiBoundaries.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <ol>
-          <li>
-            <strong>Gemini</strong>
-            <span>構思製造業情境與流程欄位</span>
-          </li>
-          <li>
-            <strong>Codex</strong>
-            <span>協助前端實作、互動邏輯與部署</span>
-          </li>
-          <li>
-            <strong>Claude</strong>
-            <span>輔助調整作品說明與求職文案</span>
-          </li>
-        </ol>
-      </section>
-
-      <section className="section-heading" id="future">
-        <p className="eyebrow">Future Extension</p>
-        <h2>如果延伸成公司內部工具</h2>
+      <section className="portfolio-note" id="about" aria-label="作品說明">
         <p>
-          目前作品以純前端 Demo 呈現，方便公開展示且沒有資安風險。若進一步落地到真實工作場景，可以往資料保存、權限控管、報表匯出與系統整合擴充。
+          使用 Gemini、Codex 與 Claude 協作完成需求拆解、前端實作與文案整理；我負責流程判斷、欄位取捨與公開安全檢查。全站為純前端模擬作品，未使用真實公司資料、帳號系統或外部 API。
         </p>
-      </section>
-
-      <section className="future-grid">
-        {futurePlans.map((plan) => (
-          <article key={plan.label}>
-            <span>{plan.label}</span>
-            <p>{plan.text}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="security-section" id="security">
-        <div>
-          <p className="eyebrow">Public Safety</p>
-          <h2>公開作品安全聲明</h2>
-          <p>
-            因為作品會放在公開求職網站與 GitHub Pages，我刻意把它設計成安全的靜態展示專案，避免公開任何金鑰、真實資料或內部資訊。
-          </p>
-        </div>
-        <ul>
-          {securityNotes.map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
       </section>
 
       <footer className="footer">
