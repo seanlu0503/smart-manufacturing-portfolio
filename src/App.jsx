@@ -46,25 +46,6 @@ const projects = [
   },
 ];
 
-const skills = [
-  {
-    label: "製造流程理解",
-    text: "把工單、產線、機台、良率、異常、停機與派工流程整理成資訊系統畫面。",
-  },
-  {
-    label: "資料視覺化",
-    text: "用 KPI、看板、表格、進度條與排行圖表協助使用者快速掌握現場狀態。",
-  },
-  {
-    label: "前端實作",
-    text: "使用 React、Vite、JavaScript 與 CSS 完成可操作、可部署的互動作品。",
-  },
-  {
-    label: "AI 協作開發",
-    text: "以 Gemini 構思情境，Codex 實作原型，Claude 輔助整理作品與履歷文案。",
-  },
-];
-
 const caseJourney = [
   {
     step: "01",
@@ -130,7 +111,6 @@ export function App() {
           <a href="#case-study">案例</a>
           <a href="#projects">作品</a>
           <a href="#decisions">設計</a>
-          <a href="#skills">能力</a>
           <a href="#about">關於</a>
         </nav>
       </header>
@@ -283,20 +263,6 @@ export function App() {
           <article key={item.title}>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="section-heading" id="skills">
-        <p className="eyebrow">What I Want To Show</p>
-        <h2>履歷中想強調的能力</h2>
-      </section>
-
-      <section className="skill-grid">
-        {skills.map((skill) => (
-          <article key={skill.label}>
-            <h3>{skill.label}</h3>
-            <p>{skill.text}</p>
           </article>
         ))}
       </section>
